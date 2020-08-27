@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Module
 object ConfigModule {
 
-  @Singleton
+//  @Singleton
   @Provides
   fun remoteConfig(config: InMemoryConfig): MutableConfig = config
 

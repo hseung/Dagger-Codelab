@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jraska.dagger.codelab.config.MutableConfig
 import com.jraska.dagger.codelab.config.di.ConfigComponent
+import com.jraska.dagger.codelab.config.di.ConfigComponentProvider
 import com.jraska.dagger.codelab.core.di.HasAppComponent
 import javax.inject.Inject
 
@@ -20,7 +21,7 @@ class ConfigActivity : AppCompatActivity() {
   lateinit var mutableConfig: MutableConfig
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    ((application as HasAppComponent).appComponent() as ConfigComponent).inject(this)
+    (application as ConfigComponentProvider).configComponent().inject(this)
 
     super.onCreate(savedInstanceState)
 

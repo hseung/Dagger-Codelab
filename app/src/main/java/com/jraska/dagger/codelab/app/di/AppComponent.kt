@@ -11,11 +11,13 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AnalyticsModule::class, ConfigModule::class])
-interface AppComponent : ConfigComponent {
+@Component(modules = [SubComponentsModule::class, AnalyticsModule::class, ConfigModule::class])
+interface AppComponent {
   fun inject(mainFragment: MainFragment)
 
   fun inject(mainActivity: MainActivity)
+
+  fun configComponent(): ConfigComponent.Factory
 
   @Component.Builder
   interface Builder {
