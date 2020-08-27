@@ -1,4 +1,4 @@
-package com.jraska.dagger.codelab.config.di
+package com.jraska.dagger.codelab.app.di
 
 import com.jraska.dagger.codelab.config.InMemoryConfig
 import com.jraska.dagger.codelab.config.MutableConfig
@@ -8,12 +8,11 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-object ConfigModule {
+class AppModule {
+  @Provides
+  @Singleton
+  fun remoteConfig(config: InMemoryConfig): MutableConfig = config
 
-//  @Singleton
-//  @Provides
-//  fun remoteConfig(config: InMemoryConfig): MutableConfig = config
-
-//  @Provides
-//  fun inMemoryConfig(config: MutableConfig): RemoteConfig = config
+  @Provides
+  fun inMemoryConfig(config: MutableConfig): RemoteConfig = config
 }
